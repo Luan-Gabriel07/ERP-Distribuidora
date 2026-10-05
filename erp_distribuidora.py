@@ -178,7 +178,7 @@ def ver_historico (historico):
         print (f"Ação: {acao[0]}")
         print (f"Dados: {acao[1]}")
 opcao = 1
-while opcao != 10:
+while opcao != 0:
     print('-=-'*20)
     print("                      DISTRIBUIDORA")
     print('-=-'*20)
@@ -187,11 +187,12 @@ while opcao != 10:
     print ("3- Ver estoque")
     print ("4- Cadastrar pedido")
     print ("5- Processar próximo pedido")
-    print ("6- Ver pedidos prioritários")
-    print ("7- Buscar produto")
-    print ("8- Ver históricos de ações")
-    print ("9- Desfazer última ação")
-    print ("10- Sair")
+    print ("6- Ver pedidos")
+    print ("7- Ver pedidos prioritários")
+    print ("8- Buscar produto")
+    print ("9- Ver históricos de ações")
+    print ("10- Desfazer última ação")
+    print ("0- Sair")
     print ("")
     opcao = int(input("Escolha o que deseja: "))  
     print ('-'*20)   
@@ -218,12 +219,16 @@ while opcao != 10:
                 acao = ["processar_pedido", pedido]
                 registrar_acao (historico,acao)
         case 6:
-            visualizar_pedidos_prioridade(pedidos)
+            visualizar_pedidos(estoque)
         case 7:
+            visualizar_pedidos_prioridade(pedidos)
+        case 8:
             ordenar_estoque(estoque)
             buscar_produto(estoque)
-        case 8: 
+        case 9: 
             ver_historico(historico)
-        case 9:
+        case 10:
             desfazer_acao(historico)
+        case _:
+            print ("Opção inválida!")
      
